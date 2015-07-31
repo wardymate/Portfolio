@@ -31,4 +31,15 @@ feature 'creations' do
       expect(current_path).to eq '/creations'
     end
   end
+
+  context 'viewing creations' do
+    let!(:tc) {Creation.create(name: "Test creation")}
+    
+    scenario 'lets a user view a creation' do
+      visit '/creations'
+      click_link 'Test creation'
+      expect(page).to have_content 'Test creation'
+      expect(current_path).to eq "/creations/#{tc.id}"
+    end
+  end
 end

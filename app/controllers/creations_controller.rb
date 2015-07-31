@@ -16,4 +16,8 @@ class CreationsController < ApplicationController
   def creation_params
     params.require(:creation).permit(:name)
   end
+
+  def show
+    @creation = Creation.find(params[:id])
+  end
 end

@@ -1,6 +1,6 @@
 <% if @creations.any? %>
   <% @creations.each do |creation| %>
-    <h2> <%= creation.name %> </h2>
+    <p> <%= link_to creation.name, creation_path(creation) %> </p>
   <% end %>
 <% else %>
   <p>No creations yet</p>
