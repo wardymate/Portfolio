@@ -1,3 +1,9 @@
-<p>No creations yet</p>
+<% if @creations.any? %>
+  <% @creations.each do |creation| %>
+    <h2> <%= creation.name %> </h2>
+  <% end %>
+<% else %>
+  <p>No creations yet</p>
+<% end %>
 
-<a href="#">Add a creation</a>
+<a href='#'>Add a creation<a>
