@@ -13,10 +13,22 @@ feature 'creations' do
     before do
       Creation.create(name: 'Test creation')
     end
+    
     scenario 'displays creations' do
       visit '/creations'
       expect(page).to have_content('Test creation')
       expect(page).not_to have_content('No creations yet')
+    end
+  end
+
+  context 'creating creations' do
+    scenario 'prompts user to fill out a form, then displays the new creation' do
+      visit '/creations'
+      click_link 'Add a creation'
+      fill_in 'Name', with: 'Test creation'
+      click_button 'Create Creation'
+      expect(page).to have_content 'Test creation'
+      expect(current_path).to eq '/creations'
     end
   end
 end
