@@ -14,7 +14,7 @@ class CreationsController < ApplicationController
   end
 
   def creation_params
-    params.require(:creation).permit(:name)
+    params.require(:creation).permit(:name, :image)
   end
 
   def show

@@ -1,0 +1,3 @@
+en:
+  file_service:
+    error_code_unknown: "Failed to upload file. Please try again later."

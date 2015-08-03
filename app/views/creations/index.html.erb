@@ -1,6 +1,7 @@
 <% if @creations.any? %>
   <% @creations.each do |creation| %>
     <p> <%= link_to creation.name, creation_path(creation) %> </p>
+    <%= image_tag creation.image.url(:thumb, full_url: true) %>
   <% end %>
 <% else %>
   <p>No creations yet</p>
