@@ -42,4 +42,18 @@ feature 'creations' do
       expect(current_path).to eq "/creations/#{tc.id}"
     end
   end
+
+  context 'editing creations' do
+    before { Creation.create name: "Test creation"}
+    
+    scenario 'let a user edit a creation' do
+      visit '/creations'
+      click_link 'Test creation'
+      click_link 'Edit'
+      fill_in 'Name', with: 'Updated Test Creation'
+      click_button 'Update Creation'
+      expect(page).to have_content 'Updated Test Creation'
+      expect(current_path).to eq '/creations'
+    end
+  end
 end

@@ -20,4 +20,14 @@ class CreationsController < ApplicationController
   def show
     @creation = Creation.find(params[:id])
   end
+
+  def edit
+    @creation = Creation.find(params[:id])
+  end
+
+  def update
+    @creation = Creation.find(params[:id])
+    @creation.update(creation_params)
+    redirect_to '/creations'
+  end
 end
