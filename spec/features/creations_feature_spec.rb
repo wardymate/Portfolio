@@ -56,4 +56,17 @@ feature 'creations' do
       expect(current_path).to eq '/creations'
     end
   end
+
+  context 'deleting creations' do
+    before { Creation.create name: "Test creation"}
+  
+    scenario 'lets a user delete a creation' do
+      visit '/creations'
+      click_link 'Test creation'
+      click_link 'Delete'
+      expect(page).to have_content 'Creation deleted successfully'
+      expect(current_path).to eq '/creations'
+    end
+  end
+  
 end

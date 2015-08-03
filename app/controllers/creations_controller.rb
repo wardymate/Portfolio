@@ -30,4 +30,11 @@ class CreationsController < ApplicationController
     @creation.update(creation_params)
     redirect_to '/creations'
   end
+
+  def destroy
+    @creation = Creation.find(params[:id])
+    @creation.destroy
+    flash[:notice] = 'Creation deleted successfully'
+    redirect_to '/creations'
+  end
 end
