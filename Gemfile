@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'file_service', git: "git@github.com:notonthehighstreet/file_service_gem.git", tag: "v2.17.3"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.12'
 # Use postgresql as the database for Active Record
